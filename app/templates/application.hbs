@@ -1,3 +1,31 @@
-<h2 id="title">Welcome to Ember.js</h2>
+{{#slide-out
+  isOpen=openSlideOut
+  showToggleButton=true
+  panel="so-panel"
+  tagName="nav" as |panel plans|}}
 
-{{outlet}}
+  <button {{action "toggleSlideOut"}}>toggle slide out</button>
+  Panel-Class: <pre>{{panel}}</pre>
+  {{partial "nav-bar"}}
+
+  <hr>
+  <ul>
+  {{#each plans as |plan|}}
+    <li>{{plan.name}} ({{plan}})</li>
+  {{/each}}
+  </ul>
+  <hr>
+{{/slide-out}}
+
+<div class="so-panel">
+  <h2 id="title">Welcome to Ember.js</h2>
+  <button {{action "toggleSlideOut"}}>toggle slide out</button>
+
+  <ul>
+  {{#each plans.selectedPlans as |plan|}}
+    <li>{{plan.name}} ({{plan}})</li>
+  {{/each}}
+  </ul>
+
+  {{outlet}}
+</div>
