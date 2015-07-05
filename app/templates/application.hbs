@@ -1,3 +1,5 @@
+{{#if isMobile}}
+
 {{#slide-out
   isOpen=openSlideOut
   showToggleButton=true
@@ -17,9 +19,16 @@
   <hr>
 {{/slide-out}}
 
+{{/if}}
+
 <div class="so-panel">
+
   <h2 id="title">Welcome to Ember.js</h2>
+  {{#if isMobile}}
   <button {{action "toggleSlideOut"}}>toggle slide out</button>
+  {{/if}}
+
+  <button {{action "toggleMobile"}}>toggle mobile</button>
 
   <ul>
   {{#each plans.selectedPlans as |plan|}}
@@ -28,4 +37,5 @@
   </ul>
 
   {{outlet}}
+
 </div>

@@ -38,6 +38,12 @@ export default Ember.Controller.extend({
   actions: {
     toggleSlideOut() {
       this.toggleProperty('openSlideOut');
+    },
+
+
+    toggleMobile() {
+      this.toggleProperty('isMobile');
     }
+
   }
 })

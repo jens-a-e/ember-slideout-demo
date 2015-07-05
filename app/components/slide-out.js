@@ -13,7 +13,8 @@ export default Ember.Component.extend({
   panel: "panel",
 
   setupSlideOut: Ember.on('didInsertElement', function() {
-    this.teardownSlideOut();
+    console.log('didInsertElement');
+
     let panel = `.${this.get('panel')}`;
     let so = new Slideout({
       panel: Ember.$(panel)[0],
@@ -23,7 +24,9 @@ export default Ember.Component.extend({
   }),
 
   teardownSlideOut: Ember.on('willDestroyElement', function() {
+    console.log('willDestroyElement');
     if (!Ember.isNone(this.get('slideout'))) {
+      this.get('slideout').close();
       delete this.get('slideout');
       this.set('slideout', null);
     }
